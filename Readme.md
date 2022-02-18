@@ -1,7 +1,7 @@
 # Личный проект «Кексобукинг»
 
 * Студент: [Данила Гусев](https://up.htmlacademy.ru/javascript/25/user/1756111).
-* Наставник: `Неизвестно`.
+* Наставник: [Алексей Хабиров](https://htmlacademy.ru/profile/alex_khab).
 
 ---
 
