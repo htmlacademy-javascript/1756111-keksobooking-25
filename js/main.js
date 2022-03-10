@@ -9,11 +9,14 @@ const getRandomIntegerNumber = (min, max) => {
 
 getRandomIntegerNumber(1, 10);
 
-function degreeRandomNumber(min, max, fraction) {
+
+
+function getRandomFractionNumber(min, max, fraction) {
   if (min>=0 && max>=0 && min > max && fraction >= 0) {
-    random = Math.floor(Math.random()*(max - min))+min;
-
-
+    let random = Math.floor(Math.random()*(max - min))+min;
+    
     console.log(random)
   }
 }
+
+getRandomFractionNumber(1, 10)
