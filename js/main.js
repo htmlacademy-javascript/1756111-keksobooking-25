@@ -12,11 +12,14 @@ getRandomIntegerNumber(1, 10);
 
 
 function getRandomFractionNumber(min, max, fraction) {
-  if (min>=0 && max>=0 && min > max && fraction >= 0) {
-    let random = Math.floor(Math.random()*(max - min))+min;
-    
-    console.log(random)
+
+  if (min < 0 || max < 0 || min > max || fraction < 0) {
+    return 'Неверный диапазон переданных чисел'
   }
+
+  let random = Math.random() * (max + (0.1 ** fraction) - min) + min;
+  return random;
+  
 }
 
 getRandomFractionNumber(1, 10)
