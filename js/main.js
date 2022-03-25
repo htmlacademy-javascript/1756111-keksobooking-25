@@ -7,10 +7,6 @@ const getRandomIntegerNumber = (min, max) => {
   return random;
 };
 
-getRandomIntegerNumber(1, 10);
-
-
-
 function getRandomFractionNumber(min, max, fraction) {
 
   if (min < 0 || max < 0 || min >= max || fraction <= 0) {
@@ -24,75 +20,52 @@ function getRandomFractionNumber(min, max, fraction) {
 
 getRandomFractionNumber(1, 10)
 
-
-const AUTHOR = [
-  'Иван Петров',
-  'Хуан Себастьянов',
-  'Мария Пушкина',
-  'Кристоф Колумб',
-  'Виктор Дудка',
-  'Юлия Путина',
-  'Люпита Джугиашвили',
-  'Вашингтон Петров',
+let location = [
+  lat: getRandomFractionNumber(35.65000, 35.70000, 5),
+  lng: getRandomFractionNumber(139.70000, 139.80000, 5) //TODO Тут ругается на что то, подскажи пожалуйста, что не так
 ];
 
-/*avatar*/
+let author = {
+  avatar: img/avatars/user{getRandomIntegerNumber(01,10)}.png //TODO Я не понимаю, как тут без новых функций сделать это
+};
 
-const OFFER = [
-  'До метро 15 минут пешком',
-  'Последний этаж',
-  'Окно выходит на парк',
-  'Шумные соседи',
-  'Скидка 10%',
-];
+let offer = {
+  title: ['Квартира в центре Токио', 'Дизайн в стле барокко', 'Новый дом из кирпича', 'Плавующий дом', 'Дом на дереве'],
+  address: [location.lat, location.lng],
+  price: getRandomIntegerNumber(200, 3000), //TODO Если не писать новую функцию, то я не знаю как иначе
+  type: ['palace', 'flat', 'house', 'bungalow', 'hotel'],
+  rooms: getRandomIntegerNumber(1, 5), //TODO Если не писать новую функцию, то я не знаю как иначе
+  guests: getRandomIntegerNumber(1, 8), //TODO Если не писать новую функцию, то я не знаю как иначе
+  checkin: ['12:00', '13:00', '14:00'],
+  checkout: ['12:00', '13:00', '14:00'],
+  features: ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'],
+  description:['Окна в полный рост','Без отделки','Домашний кинотеатр','Арабские ковры на стенах','Японские фонари'],
+  photos:[https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/duonguyen-8LrGtIxxa4w.jpg,
+  https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/brandon-hoogenboom-SNxQGWxZQi0.jpg
+  https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/claire-rendall-b6kAwr1i0Iw.jpg]
+};
 
-const TITLE = [
-  'Квартира в центре Токио',
-  'Дизайк в стле барокко',
-  'Новый дом из кирпича',
-  'Плавующий дом',
-  'Дом на дереве',
-];
+const getRandomArrayElement = (elements) => {
+  return elements[getRandomIntegerNumber(0, elements.length - 1)];
+};
 
-/*address*/
 
-const PRICE = getRandomIntegerNumber(200, 3000); //TODO Если не писать новую функцию, то я не знаю как иначе
+const getRandomAds = () => { 
+  return {
+    author: author.avatar,
+    title: getRandomArrayElement(offer.title),
+    address: offer.address,
+    price: offer.price,
+    type: getRandomArrayElement(offer.type),
+    rooms: offer.rooms,
+    guests: offer.guests,
+    checkin: getRandomArrayElement(offer.checkin),
+    checkout: getRandomArrayElement(offer.checkout),
+    features: getRandomArrayElement(offer.features),
+    description: getRandomArrayElement(offer.description),
+    photos: getRandomArrayElement(offer.photos),
+    location: location
+  };
+};
 
-const TYPE = [
-  'palace',
-  'flat',
-  'house',
-  'bungalow',
-  'hotel',
-];
-
-const ROOMS = getRandomIntegerNumber(1, 5); //TODO Если не писать новую функцию, то я не знаю как иначе
-
-const GUESTS = getRandomIntegerNumber(1, 8); //TODO Если не писать новую функцию, то я не знаю как иначе
-
-const CHECKIN = [
-  '12:00',
-  '13:00',
-  '14:00',
-];
-
-const CHECKOUT = [
-  '12:00',
-  '13:00',
-  '14:00',
-];
-
-const FEATURES = [
-  'wifi',
-  'dishwasher',
-  'parking',
-  'washer',
-  'elevator',
-  'conditioner',
-];
-
-/*description*/
-
-/*photos*/
-
-/*location*/
+const similarAds = Array.from(10, getRandomAds);
