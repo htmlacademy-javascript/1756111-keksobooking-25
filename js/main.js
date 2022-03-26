@@ -51,6 +51,9 @@ const PHOTOS = [
 
 const OFFER_AMMOUNT = 10;
 
+const latitude = getRandomFractionNumber(35.65000, 35.70000, 5);
+const longitude = getRandomFractionNumber(139.70000, 139.80000, 5)
+
 const getRandomIntegerNumber = (min, max) => {
   if (min < 0 || max < 0 || min >= max) {
     return 'Неверный диапазон переданных чисел'
@@ -73,28 +76,32 @@ const getRandomArrayElement = (elements) => {
   return elements[getRandomIntegerNumber(0, elements.length - 1)];
 };
 
-const getRandomArrayElements = (elements) => {
+const getRandomArrayElements = (elements, length) => {
   const array = [];
-  for (let i = 0; i < getRandomIntegerNumber(1, 3); i++) {
-    array.push = elements[getRandomIntegerNumber(0, elements.length - 1)];
-    console.log(array)
+
+  for (let i = 0; i < getRandomIntegerNumber(1, length); i++) {
+    array.push(elements[getRandomIntegerNumber(0, elements.length - 1)]);
   }
+
   return array;
 };
 
 const createAd = () => {
   const location ={
-    lat: getRandomFractionNumber(35.65000, 35.70000, 5),
-    lng: getRandomFractionNumber(139.70000, 139.80000, 5)
+    lat: latitude,
+    lng: longitude
   };
 
   return {
     author: {
-      avatar: 'img/avatars/user.png' //TODO Тут нужно сделать масси
+      avatar: 'img/avatars/user' + getRandomIntegerNumber(1, 10).padStart(2, 0) + '.png'
     },
     offer : {
       title: getRandomArrayElement(TITLE),
-      address: location,
+      address: {
+        lat: location.lat,
+        lng: location.lng
+      },
       price: getRandomIntegerNumber(0, 3000),
       type: getRandomArrayElement(TYPE),
       rooms: getRandomIntegerNumber(1, 5),
@@ -106,8 +113,8 @@ const createAd = () => {
       photos: getRandomArrayElements(PHOTOS) * getRandomIntegerNumber(1, 3)
     },
     location: {
-      lat: getRandomFractionNumber(35.65000, 35.70000, 5),
-      lng: getRandomFractionNumber(139.70000, 139.80000, 5)
+      lat: location.lat,
+      lng: location.lng
     }
   };
 };
