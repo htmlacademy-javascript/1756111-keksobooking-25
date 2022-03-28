@@ -7,10 +7,10 @@ const TITLE = [
 ];
 
 const TYPE = [
-  'palace', 
-  'flat', 
-  'house', 
-  'bungalow', 
+  'palace',
+  'flat',
+  'house',
+  'bungalow',
   'hotel',
 ];
 
@@ -27,11 +27,11 @@ const CHECKOUT = [
 ];
 
 const FEATURES = [
-  'wifi', 
-  'dishwasher', 
-  'parking', 
-  'washer', 
-  'elevator', 
+  'wifi',
+  'dishwasher',
+  'parking',
+  'washer',
+  'elevator',
   'conditioner',
 ];
 
@@ -49,10 +49,13 @@ const PHOTOS = [
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/claire-rendall-b6kAwr1i0Iw.jpg',
 ];
 
-const OFFER_AMMOUNT = 10;
+const OFFER_AMOUNT = 10;
 
-const latitude = getRandomFractionNumber(35.65000, 35.70000, 5);
-const longitude = getRandomFractionNumber(139.70000, 139.80000, 5)
+const minlat = 35.65000;
+const maxlat = 35.70000;
+const minlnt = 139.70000;
+const maxlnt = 139.80000;
+
 
 const getRandomIntegerNumber = (min, max) => {
   if (min < 0 || max < 0 || min >= max) {
@@ -76,32 +79,31 @@ const getRandomArrayElement = (elements) => {
   return elements[getRandomIntegerNumber(0, elements.length - 1)];
 };
 
-const getRandomArrayElements = (elements, length) => {
+const getRandomArrayElements = (elements) => {
   const array = [];
 
-  for (let i = 0; i < getRandomIntegerNumber(1, length); i++) {
-    array.push(elements[getRandomIntegerNumber(0, elements.length - 1)]);
+  for (let i = 0; i < getRandomIntegerNumber(1, elements.length); i++) {
+    array.push(getRandomArrayElement(elements));
   }
 
   return array;
 };
 
-const createAd = () => {
+const createAd = (index) => {
+  console.log(index)
+
   const location ={
-    lat: latitude,
-    lng: longitude
+    lat: getRandomFractionNumber(minlat, maxlat, 5),
+    lng: getRandomFractionNumber(minlnt, maxlnt, 5)
   };
 
   return {
     author: {
-      avatar: 'img/avatars/user' + getRandomIntegerNumber(1, 10).padStart(2, 0) + '.png'
+      avatar: `img/avatars/user' + ${getRandomIntegerNumber(1, 10).padStart(2, '0')} + '.png` //Через алерт тодже не работает
     },
     offer : {
       title: getRandomArrayElement(TITLE),
-      address: {
-        lat: location.lat,
-        lng: location.lng
-      },
+      address: `${location.lat} + ${location.lng}`,
       price: getRandomIntegerNumber(0, 3000),
       type: getRandomArrayElement(TYPE),
       rooms: getRandomIntegerNumber(1, 5),
@@ -110,7 +112,7 @@ const createAd = () => {
       checkout: getRandomArrayElement(CHECKOUT),
       features: getRandomArrayElement(FEATURES),
       description: getRandomArrayElement(DESCRIPTION),
-      photos: getRandomArrayElements(PHOTOS) * getRandomIntegerNumber(1, 3)
+      photos: getRandomArrayElements(PHOTOS)
     },
     location: {
       lat: location.lat,
@@ -123,11 +125,11 @@ const createAds = (count) => {
   const data = [];
 
   for (let i = 0; i < count; i++) {
-    const ad = createAd();
+    const ad = createAd(i);
     data.push(ad);
   }
 
   return data;
 };
 
-console.log (createAds(OFFER_AMMOUNT))
+console.log (createAds(OFFER_AMOUNT))
