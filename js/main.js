@@ -109,7 +109,7 @@ const createAd = (index) => {
       guests: getRandomIntegerNumber(1, 8),
       checkin: getRandomArrayElement(CHECKIN),
       checkout: getRandomArrayElement(CHECKOUT),
-      features: getRandomArrayElement(FEATURES),
+      features: getRandomArrayElements(FEATURES),
       description: getRandomArrayElement(DESCRIPTION),
       photos: getRandomArrayElements(PHOTOS)
     },
