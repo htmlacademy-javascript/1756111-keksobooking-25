@@ -90,7 +90,6 @@ const getRandomArrayElements = (elements) => {
 };
 
 const createAd = (index) => {
-  console.log(index)
 
   const location ={
     lat: getRandomFractionNumber(minlat, maxlat, 5),
@@ -99,11 +98,11 @@ const createAd = (index) => {
 
   return {
     author: {
-      avatar: `img/avatars/user' + ${getRandomIntegerNumber(1, 10).padStart(2, '0')} + '.png` //Через алерт тодже не работает
+      avatar: `img/avatars/user${(index + 1).toString().padStart(2, '0')}.png` //Через алерт тодже не работает
     },
     offer : {
       title: getRandomArrayElement(TITLE),
-      address: `${location.lat} + ${location.lng}`,
+      address: `${location.lat}, ${location.lng}`,
       price: getRandomIntegerNumber(0, 3000),
       type: getRandomArrayElement(TYPE),
       rooms: getRandomIntegerNumber(1, 5),
