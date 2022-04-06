@@ -69,7 +69,7 @@ const createAd = (index) => {
     author: {
       avatar: `img/avatars/user${(index + 1).toString().padStart(2, '0')}.png`
     },
-    offer : {
+    offer: {
       title: getRandomArrayElement(TITLE),
       address: `${location.lat}, ${location.lng}`,
       price: getRandomIntegerNumber(0, 3000),

@@ -1,4 +1,4 @@
-import {} from './create-ads.js';
+import {createAds, OFFER_AMOUNT} from './create-ads.js';
 
 const similarAdTemplate = document.querySelector('#card').content.querySelector('.popup');
 
