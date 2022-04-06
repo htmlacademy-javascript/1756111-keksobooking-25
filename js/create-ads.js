@@ -53,16 +53,16 @@ const PHOTOS = [
 
 const OFFER_AMOUNT = 10;
 
-const minlat = 35.65000;
-const maxlat = 35.70000;
-const minlnt = 139.70000;
-const maxlnt = 139.80000;
+const MIN_LAT = 35.65000;
+const MAX_LAT = 35.70000;
+const MIN_INT = 139.70000;
+const MAX_INT = 139.80000;
 
 const createAd = (index) => {
 
   const location ={
-    lat: getRandomFractionNumber(minlat, maxlat, 5),
-    lng: getRandomFractionNumber(minlnt, maxlnt, 5)
+    lat: getRandomFractionNumber(MIN_LAT, MAX_LAT, 5),
+    lng: getRandomFractionNumber(MIN_INT, MAX_INT, 5)
   };
 
   return {
