@@ -1,5 +1,5 @@
 const formTemplate = document.querySelector('.ad-form');
-const mapFiltersTemplate = document.querySelector('.mapfilters');
+const mapFiltersTemplate = document.querySelector('.map__filters');
 
 const activate = () => {
   formTemplate.classList.remove('ad-form--disabled');
