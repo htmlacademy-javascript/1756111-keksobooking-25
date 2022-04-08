@@ -1,6 +1,6 @@
 import {createAds, OFFER_AMOUNT} from './create-ads.js';
 import {renderCard} from './popup.js';
-import './form.js'; //TODO ошибка в консоле, пока не убрать модуль
+import './form.js';
 
 console.log(createAds(OFFER_AMOUNT));
 
