@@ -1,7 +1,14 @@
 const similarAdTemplate = document.querySelector('#card').content.querySelector('.popup');
 
+const translationType = {
+  palace: 'Дворец',
+  flat: 'Квартира',
+  house: 'Дом',
+  bungalow: 'Бунгало',
+  hotel: 'Отель'
+};
+
 const renderCard = (ad) => {
-  console.log(ad);
   const adElement = similarAdTemplate.cloneNode(true);
   const featuresContainer = adElement.querySelector('.popup__features');
   const photosContainer = adElement.querySelector('.popup__photos');
@@ -9,26 +16,10 @@ const renderCard = (ad) => {
   featuresContainer.innerHTML = '';
   photosContainer.innerHTML = '';
 
-  const translationType = {
-    palace: 'Усадьба',
-    flat: 'Квартира',
-    house: 'Дом',
-    bungalow: 'Бунгало',
-    hotel: 'Отель'
-  };
-
-  const translateType = (type) => {
-    for (const item of Object.keys(translationType)) {
-      if (item === type) {
-        return translationType[item]
-      }
-    }
-  };
-
   adElement.querySelector('.popup__title').textContent = ad.offer.title;
-  adElement.querySelector('.popup__text--address').textContent = `${ad.offer.address} Tōkyō-to, Chiyoda-ku, Ichibanchō`;
+  adElement.querySelector('.popup__text--address').textContent = ad.offer.address;
   adElement.querySelector('.popup__text--price').textContent = `${ad.offer.price} ₽/ночь`;
-  adElement.querySelector('.popup__type').textContent = translateType(ad.offer.type);
+  adElement.querySelector('.popup__type').textContent =  translationType[ad.offer.title];
   adElement.querySelector('.popup__text--capacity').textContent = `${ad.offer.rooms} для ${ad.offer.guests} гостей`;
   adElement.querySelector('.popup__text--time').textContent =`Заезд после ${ad.offer.checkin}, выезд до ${ad.offer.checkout}`;
   adElement.querySelector('.popup__description').textContent = ad.offer.description;
