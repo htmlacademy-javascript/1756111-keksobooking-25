@@ -1,23 +1,12 @@
-const getRandomIntegerNumber = (min, max) => {
-  if (min < 0 || max < 0 || min >= max) {
-    return 'Неверный диапазон переданных чисел'
-  }
+import {createAds, OFFER_AMOUNT} from './create-ads.js';
+import {renderCard} from './popup.js';
+import './form.js';
 
-  const random = Math.floor(Math.random() * (max - min)) + min;
-  return random;
-};
+console.log(createAds(OFFER_AMOUNT));
 
-getRandomIntegerNumber(1, 10);
+const map = document.querySelector('#map-canvas');
 
+const ads = createAds(OFFER_AMOUNT);
+const card = renderCard(ads[0]);
 
-
-const getRandomFractionNumber = (min, max, fraction) => {
-  if (min < 0 || max < 0 || min >= max || fraction <= 0) {
-    return 'Неверный диапазон переданных чисел'
-  }
-
-  const random = Math.random() * (max + (0.1 ** fraction) - min) + min;
-  return random;
-};
-
-getRandomFractionNumber(1, 10);
+map.appendChild(card);
