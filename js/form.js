@@ -15,6 +15,25 @@ const deactivate = () => {
   mapFiltersTemplate.querySelectorAll('select, fieldset').forEach(item => item.disabled = true);
 };
 
-deactivate();
+// deactivate();
+
+const form = document.querySelector('.ad-form');
+
+const pristine = new pristine(form, {
+  classTo: 'setup-wizard-form__element',
+  errorTextParent: 'setup-wizard-form__element',
+  errorTextClass: 'setup-wizard-form__error-text',
+});
+
+form.addEventListener('submit', (evt) => {
+  evt.preventDefault();
+
+  const isValid = pristine.validate();
+  if (isValid) {
+    console.log('Можно отправлять');
+  } else {
+    console.log('Форма невалидна');
+  }
+});
 
 export {activate, deactivate};
