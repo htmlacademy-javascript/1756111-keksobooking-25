@@ -63,16 +63,17 @@ const checkNumberOfGuestsAndRooms = () => {
 };
 
 const onFormSubmit = (evt) => {
-    evt.preventDefault();
+  evt.preventDefault();
 
-    const isValid = pristine.validate();
-    if (isValid) {
-      console.log('Можно отправлять');
-    } else {
-      console.log('Форма невалидна');
-    }
+  const isValid = pristine.validate();
+  if (isValid) {
+    console.log('Можно отправлять');
+  } else {
+    console.log('Форма невалидна');
+  }
 };
 
+// навешиваем обработчики
 const setFormListeners = () => {
 
   numberRooms.addEventListener('change', () => {
