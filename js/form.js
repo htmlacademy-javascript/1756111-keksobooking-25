@@ -50,7 +50,7 @@ const checkNumberOfGuestsAndRooms = () => {
 
   if (roomsValue !== 100 && guestsValue === 0) {
     numberGuests.setCustomValidity('Недостаточно гостей');
-  } else if (roomsValue <= guestsValue) {
+  } else if (roomsValue < guestsValue) {
     numberGuests.setCustomValidity('Гостей очень много');
   } else if (roomsValue === 100 && guestsValue !== 0) {
     numberGuests.setCustomValidity('Данный вариант не для гостей');
