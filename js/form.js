@@ -22,6 +22,7 @@ const deactivate = () => {
 };
 
 
+// тип жилья - мин цена
 const minPrice = {
   bungalow: 0,
   flat: 1000,
@@ -36,6 +37,7 @@ const setMinPrice = () => {
   price.placeholder = value;
 };
 
+// заезд - выезд
 const toSyncTimeOut = () => {
   timeOut.value = timeIn.value;
 };
@@ -44,6 +46,7 @@ const toSyncTimeIn = () => {
   timeIn.value = timeOut.value;
 };
 
+// колво комнат - колво гостей
 const checkNumberOfGuestsAndRooms = () => {
   const roomsValue = parseInt(numberRooms.value, 10);
   const guestsValue = parseInt(numberGuests.value, 10);
